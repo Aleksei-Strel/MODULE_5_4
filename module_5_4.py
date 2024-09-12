@@ -1,4 +1,4 @@
-class HOUSE:
+class Hose:
     houses_history = []
 
     def __new__(cls, *args, **kwargs):
@@ -10,7 +10,7 @@ class HOUSE:
     def __init__(self, name, numb_f):
         self.name = name
         self.number_of_floor = numb_f
-        if isinstance(numb_f, HOUSE):
+        if isinstance(numb_f, Hose):
             self.houses_history = numb_f.append()
 
     def go_to(self, new_floor):
@@ -30,38 +30,38 @@ class HOUSE:
         return f'Название: {self.name}, кол-во этажей: {self.number_of_floor}.'
 
     def __eq__(self, other):
-        if isinstance(other, HOUSE):
+        if isinstance(other, Hose):
             return self.number_of_floor == other.number_of_floor
         return False
 
     def __lt__(self, other):
-        if isinstance(other, HOUSE):
+        if isinstance(other, Hose):
             return self.number_of_floor < other.number_of_floor
         return NotImplemented
 
     def __le__(self, other):
-        if isinstance(other, HOUSE):
+        if isinstance(other, Hose):
             return self.number_of_floor <= other.number_of_floor
         return NotImplemented
 
     def __gt__(self, other):
-        if isinstance(other, HOUSE):
+        if isinstance(other, Hose):
             return self.number_of_floor > other.number_of_floor
         return NotImplemented
 
     def __ge__(self, other):
-        if isinstance(other, HOUSE):
+        if isinstance(other, Hose):
             return self.number_of_floor >= other.number_of_floor
         return NotImplemented
 
     def __ne__(self, other):
-        if isinstance(other, HOUSE):
+        if isinstance(other, Hose):
             return self.number_of_floor != other.number_of_floor
         return True
 
     def __add__(self, value):
         if isinstance(value, int):
-            return HOUSE(self.name, self.number_of_floor + value)
+            return Hose(self.name, self.number_of_floor + value)
         return NotImplemented
 
     def __radd__(self, value):
@@ -70,15 +70,15 @@ class HOUSE:
 
 # Вывод результата по условию задачи
 
-h1 = HOUSE('Скала', 28)
-print(HOUSE.houses_history)
-h2 = HOUSE('Хрущ', 5)
-print(HOUSE.houses_history)
-h3 = HOUSE('ЖК Волгарь', 12)
-print(HOUSE.houses_history)
+h1 = Hose('Скала', 28)
+print(Hose.houses_history)
+h2 = Hose('Хрущ', 5)
+print(Hose.houses_history)
+h3 = Hose('ЖК Волгарь', 12)
+print(Hose.houses_history)
 
 # Удаление объектов
 del h2
 del h3
 
-print(HOUSE.houses_history)
+print(Hose.houses_history)
